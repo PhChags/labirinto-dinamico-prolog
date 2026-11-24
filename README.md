@@ -1,4 +1,3 @@
-# labirinto-dinamico-prolog
 # Resolução de Labirintos Dinâmicos com Chaves e Portas em Prolog
 
 Trabalho prático da disciplina de Inteligência Artificial do curso de Ciência da Computação da Universidade Federal Fluminense.
