@@ -2,7 +2,7 @@
 
 dimensao(mapa_mock, 4, 4).
 inicio(mapa_mock, 1, 1).
-chegada(mapa_mock, 4, 3).
+objetivo(mapa_mock, 4, 3).
 
 parede(mapa_mock, 3, 1).
 parede(mapa_mock, 3, 2).

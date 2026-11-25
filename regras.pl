@@ -3,10 +3,10 @@
 
 %estado inicial e objetivo do agente
 estado_inicial(MapaID, estado(X, Y, [])) :-
-    inicio(MapaID, X, Y).
+    user:inicio(MapaID, X, Y).
 
 estado_objetivo(MapaID, estado(X, Y, _)) :-
-    objetivo(MapaID, X, Y).
+    user:objetivo(MapaID, X, Y).
 
 % movimentações do agente
 direcao(norte, 0, -1).
@@ -21,20 +21,20 @@ proximo_estado(MapaID, estado(X, Y, Chaves), Direcao, estado(NX, NY, NovasChaves
     NX is X + DX,
     NY is Y + DY,
     dentro_dos_limites(MapaID, NX, NY),
-    \+ parede(MapaID, NX, NY),
+    \+ user:parede(MapaID, NX, NY),
     pode_atravessar_porta(MapaID, NX, NY, Chaves),
     atualizar_inventario(MapaID, NX, NY, Chaves, NovasChaves).
 
 % verifica se a nova posição é válida 
 dentro_dos_limites(MapaID, X, Y) :-
-    dimensao(MapaID, Largura, Altura),
+    user:dimensao(MapaID, Largura, Altura),
     X >= 1, X =< Largura,
     Y >= 1, Y =< Altura.
 
 % verifica se é possível abrir a porta em frente ao agente
 pode_atravessar_porta(MapaID, X, Y, Chaves) :-
-    ( porta(MapaID, X, Y, Cor) -> member(Cor, Chaves); true ).
+    ( user:porta(MapaID, X, Y, Cor) -> member(Cor, Chaves); true ).
 
 % coleta chaves
 atualizar_inventario(MapaID, X, Y, Chaves, NovasChaves) :-
-    ( chave(MapaID, X, Y, Cor) -> sort([Cor | Chaves], NovasChaves); NovasChaves = Chaves ).
+    ( user:chave(MapaID, X, Y, Cor) -> sort([Cor | Chaves], NovasChaves); NovasChaves = Chaves ).

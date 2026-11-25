@@ -8,7 +8,8 @@ Um agente deve navegar por um labirinto em grade partindo de uma posição inici
 ## Estrutura do Projeto
 - `main.pl`: Predicados principais para execução das buscas e exibição de métricas.
 - `mapas_autorais.pl`: Cenários de teste criados pela equipe.
-- `mapa_externo.pl`: Cenário extraído do dataset MiniGrid DoorKey.
+- `mapa_externo.pl`: Cenário com múltiplas chaves e portas extraído do ambiente `MiniGrid-ObstructedMaze-Full-v0`.
+- `extrair_minigrid.py`: Script Python utilizado para extrair e converter o mapa do MiniGrid para fatos Prolog.
 - `regras.pl`: Regras de transição de estados, validação de movimentos e inventário.
 - `busca_astar.pl`: Implementação do algoritmo A* com heurística de Manhattan.
 - `busca_bfs.pl`: Implementação da Busca em Largura (BFS).
@@ -19,4 +20,4 @@ Um agente deve navegar por um labirinto em grade partindo de uma posição inici
 3. Execute uma consulta de exemplo: `?- resolver(mapa1, astar, Caminho, Passos).`
 
 ## Referências e Datasets
-- Mapa externo adaptado do ambiente **MiniGrid (DoorKey)**, disponível no Hugging Face: [zhangdw/minigrid](https://huggingface.co/datasets/zhangdw/minigrid).
+- Mapa externo extraído do ambiente **MiniGrid-ObstructedMaze-Full-v0** (`seed=12`), da suíte oficial **MiniGrid** (*Farama Foundation*): [minigrid.farama.org](https://minigrid.farama.org/).
